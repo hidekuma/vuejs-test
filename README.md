@@ -60,3 +60,16 @@ vm.b = 2
 ```javascript
 Vue.set(object, key, value)
 ```
+
+### keycode config
+- Vue.config.keyCodes.f1 = 112
+
+### 객체를 bind
+```javascript
+todo: {
+  text: 'Learn Vue',
+  isComplete: false
+}
+<todo-item v-bind="todo"></todo-item>
+
+```

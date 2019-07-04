@@ -52,6 +52,11 @@
       <p>원본 메시지: "{{ message }}"</p>
       <p>역순으로 표시한 메시지: "{{ reversedMessage }}"</p>
     </div>
+    <div id="example-2">
+      <simple-counter></simple-counter>
+      <simple-counter></simple-counter>
+      <simple-counter></simple-counter>
+    </div>
     <script>
         var app = new Vue({
             el: '#app',
@@ -135,6 +140,20 @@
               return this.message.split('').reverse().join('')
             }
           }
+        })
+        Vue.component('simple-counter', {
+          template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+          // 데이터는 기술적으로 함수이므로 Vue는 따지지 않지만
+          // 각 컴포넌트 인스턴스에 대해 같은 객체 참조를 반환합니다.
+          data: function () {
+              return {
+                  counter: 0 
+              }
+          }
+        })
+
+        new Vue({
+          el: '#example-2'
         })
     </script>
 </body>
